@@ -1,0 +1,98 @@
+*,*::after,*::before
+{
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+body
+{
+    background-color: #D6E8F8;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.clock
+{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+}
+
+.clock .number
+{
+    --rotation: 0;
+    position: absolute;
+    /* background-color: red; */
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transform: rotate(var(--rotation));
+    padding-top: 4px;
+}
+
+.clock .number1 {--rotation: 30deg;}
+.clock .number2 {--rotation: 60deg;}
+.clock .number3 {--rotation: 90deg;}
+.clock .number4 {--rotation: 120deg;}
+.clock .number5 {--rotation: 150deg;}
+.clock .number6 {--rotation: 180deg;}
+.clock .number7 {--rotation: 210deg;}
+.clock .number8 {--rotation: 240deg;}
+.clock .number9 {--rotation: 270deg;}
+.clock .number10 {--rotation: 300deg;}
+.clock .number11 {--rotation: 330deg;}
+.clock .number12 {--rotation: 360deg;}
+
+.clock .hand
+{
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 6px;
+    height: 40%;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transform-origin: bottom;
+    background-color: black;
+    z-index: 4;
+}
+
+.clock .hand.second
+{
+    z-index: 6;
+    background-color: red;
+    width: 2px;
+    height: 35%;
+}
+
+.clock .hand.minute
+{
+    z-index: 5;
+    width: 4px;
+    height: 45%;
+}
+
+.clock::after
+{
+    position: absolute;
+    z-index: 10;
+    content: '';
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
